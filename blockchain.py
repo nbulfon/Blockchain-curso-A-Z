@@ -99,11 +99,21 @@ class Blockchain:
             # si esas 4 primeras posiciones (0,1,2,3) no cumplen la proof of work ->
             if hash_operation[:4] != '0000':
                 return False
+            
+            # seteo el bloque anterior con el valor del actual, y actualizo en 1 el indice ->
+            previous_block = current_block
+            block_index += 1
+            
+        # si la cadena es válida, devuelvo true ->
+        return True
         
         
     #}
 
 # Parte 2 - Minado de un bloque de la cadena
 
-
+# primero voy a crear una web app basada en Flask ->
+app = Flask(__name__)
+# segundo voy a crear una BlockChain ->
+blockchain = Blockchain()
 
