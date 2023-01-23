@@ -117,3 +117,55 @@ app = Flask(__name__)
 # segundo voy a crear una BlockChain ->
 blockchain = Blockchain()
 
+# Minar un nuevo bloque ->
+# antes, le paso http://127.0.0.1:5000/ (localhost)
+@app.route('/mine_block', methods =['GET'])
+
+# funcion para minar un bloque.
+# para minar un bloque, primero necesito resolver el problema matemático que haya.
+def mine_block():
+    # obtengo el ultimo bloque de la cadena ->
+    previous_block = blockchain.get_previous_block()
+    previous_proof = previous_block['proof']
+    
+    # llamo al metodo proof of work para empezar el proceso de minado ->
+    proof = blockchain.proof_of_work(previous_proof)
+    # obtengo el hash del bloque previo ->
+    previous_hash = blockchain.hash(previous_block)
+    block = blockchain.create_block(proof, previous_hash)
+    
+    # armo la response, que el usuario va a ver en la web/postman ->
+    response = {
+        'message' : 'Bien capo. Minaste un nuevo bloque.',
+        'index' : block['index'], 
+        'timestamp' : block['timestamp'],
+        'proof' : block['proof'],
+        'previous_hash' : block['previous_hash'],
+        }
+    return jsonify(response) , 200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
