@@ -46,6 +46,26 @@ class Blockchain:
     # funcion para obtener el último bloque de la cadena.
     def get_previous_block(self):
           return self.chain[-1]
+      
+    # funcion proof of work, recibo el self, y la proof anterior para generar el problema siguiente.
+    def proof_of_work(self, previous_proof):
+        new_proof = 1
+        # si check_proof es true, el minero hallo la colucion.
+        check_proof = False
+        
+        # mientras no esté resuelta la prueba...
+        # cuantos mas ceros le exiga a la proof of work, mas complicado será para el minero, porque deberá pasar más iteraciones para llegar al hash indicado...
+        while check_proof is False:
+            # exigo que no sea simetrico el hash ->
+            # le paso como argumento una ecuacion que represente un reto para el minero ->
+            hash_operation = hashlib.sha256(str(new_proof**2 - previous_proof**2).encode()).hexdigest()
+            #checkeo que hayan 4 ceros al inicio (en este caso) ->
+            if hash_operation[:4] == '0000':
+                check_proof = True
+            else:
+                new_proof += 1
+        
+        return new_proof
     #}
 
 
