@@ -14,7 +14,7 @@ import json
 from flask import Flask, jsonify
 
 
-# Crear la cadena de bloques ->
+# Parte 1: Crear la cadena de bloques ->
 class Blockchain:
     #{
     #defino el constructor de la clase en python ->
@@ -64,10 +64,18 @@ class Blockchain:
                 check_proof = True
             else:
                 new_proof += 1
-        
         return new_proof
+    
+    # funcion de para generar un hash de un bloque
+    def hash(self, block):
+        # primero, convierto a string codificado el bloque, asi lo suministro a el algoritmo sha256 ->
+        # le paso el bloque que quiero codificar, y le digo que ordene los datos del diccionario, para prevenir asi, el Efecto Avalancha ->
+        encode_block = json.dumps(block, sort_keys = True).encode()
+        # el .hexdigest() es para convertirlo en hexadecimal.
+        return hashlib.sha256(encode_block).hexdigest()
     #}
 
+# Parte 2 - Minado de un bloque de la cadena
 
 
 
