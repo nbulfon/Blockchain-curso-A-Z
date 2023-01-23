@@ -58,7 +58,8 @@ class Blockchain:
         while check_proof is False:
             # exigo que no sea simetrico el hash ->
             # le paso como argumento una ecuacion que represente un reto para el minero ->
-            hash_operation = hashlib.sha256(str(new_proof**2 - previous_proof**2).encode()).hexdigest()
+            ecuacion = (new_proof**2 - previous_proof**2)
+            hash_operation = hashlib.sha256(str(ecuacion).encode()).hexdigest()
             #checkeo que hayan 4 ceros al inicio (en este caso) ->
             if hash_operation[:4] == '0000':
                 check_proof = True
@@ -73,6 +74,33 @@ class Blockchain:
         encode_block = json.dumps(block, sort_keys = True).encode()
         # el .hexdigest() es para convertirlo en hexadecimal.
         return hashlib.sha256(encode_block).hexdigest()
+    
+    # funcion para verificar si la cadena de bloques es válida.
+    def is_chain_valid(self, chain):
+        # inicializo en qué posicion voy a empezar (el bloque genesis) ->
+        previous_block = chain[0]
+        # inicicializo la posicion en la que estoy ahora ->
+        block_index = 1
+        while block_index < len(chain):
+            # comprueblo que el bloque actual cumple la ecuacion programada ->
+            current_block = chain[block_index]
+            # 1. el previous hash del bloque actuak, tiene que coincidir con el hash del bloque anterior.
+            if current_block['previous_hash'] != self.hash(previous_block):
+                return False
+            
+            # consulto la prueba del bloue previo ->
+            previous_proof = previous_block['proof']
+            # cpnsulto el valor de la prueba actual ->
+            proof = current_block['proof']
+            
+            ecuacion = (proof**2 - previous_proof**2)
+            hash_operation = hashlib.sha256(str(ecuacion).encode()).hexdigest()
+            
+            # si esas 4 primeras posiciones (0,1,2,3) no cumplen la proof of work ->
+            if hash_operation[:4] != '0000':
+                return False
+        
+        
     #}
 
 # Parte 2 - Minado de un bloque de la cadena
