@@ -5,6 +5,37 @@ Bitcoin capas:
 
 -Tecnologia - Blockchain
 
--Protocolos - Bitcoin -> un protocolo es uin conjunt ode reglas que necesariamente hay que afectar para posibilitar la comunicación en internet. Son reglas que permiten que los participantes de una red se comuiniquen entre ellos. Ej Http, https, www, etc.
+-Protocolos - Bitcoin -> un protocolo es un conjunto de reglas que necesariamente hay que afectar para posibilitar la comunicación en internet. Son reglas que permiten que los participantes de una red se comuiniquen entre ellos. Ej Http, https, www, etc. Establece reglas en función de claves, para autenticación, actualizaciones, etc.
+	Otro protocolo es el de Ethereum, otro es el de Ripple, otro es el de Neo, Litcoin, hay un montón. Todos estos protocolos criptográficos se basan en arquitectura Blockchain. Lo particular de estos protocolos criptográficos, es que c/u de estos protocolos tienen su propia moneda asociada. Una moneda es un asset innato del protocolo que sirve para que las personas interactuen, etc.
 
--Token
+-Token - ICO (initial Coin Offering). Refiere a los Tokens. Los token, se sustentan en el concepto de Smart Contract, construido sobre la capa nro 2 (Protocolo). Ej Tokens: TRX, REP, AE, PPT, BNB ... (Bitcoin igual, no tiene tokens. Porque no se puede, por como está programado; su protocolo no habilita la autenticación para ser usado en Smart Contract). El protocolo de Ethereum, por ej. si permite ser usado para Smart Contracts.
+
+!¡ Cuando invierto en Bitcoin, Ethereum , etc. No estoy invirtiendo en una tecnología. La tecnoogía (Blockchain) es la misma para todos. En lo que estoy invirtiendo en realidad es en un protocolo.
+---------------------------------------------------------------------------------------------------------------------------------------
+
+Lo interesante del protocolo Bitcoin, es que, como la confianza de los usuarios está dada sobre el protocolo, esto permitiría eliminar los intermediarios (bancos). Entonces, el propio protocolo (programado) de BTC, permite que las personas interactúen monetariamente entre ellas, transaccionando, sin tener a un banco de intermediario.
+
+Términos importantes en ecosistema de Bitcoin:
+-Nodos: son los participantes de la red. No es un término directamente para la persona, sino, sobre el dispositivo que está usando la persona para partipar de la red. El dispositivo de la persona que hace una transaccion (que no es minera) es un Nodo.
+
+-Mineros: es aquella maquina que va resolviendo la ecuación, para encontrar un hash, que sirva para descifrar la cadena de bloques, y añadir transacciones en bloques, etc.
+
+-Granja Minera: muchos dispositivos, concepto idem a Mineros, pero aumenta la escala a lo pavote.
+
+-Mining Pools: colección de maquinas, interconectadas y trabajando en cadenas. Es ahí donde diferentes mineros trabajan en conjunto para resolver el problema/ecuación de minado.
+
+.La diferencia entre Granja Minera y Mining Pools, es que la Granja Minera generalmente es de un persona, de un sujeto, mientras las Mining Pool son n-mineros trabajando en conjunto.
+
+
+!¡ Bitcoin = Protocolo =/= Moneda
+
+
+
+
+
+
+
+
+
+
+
