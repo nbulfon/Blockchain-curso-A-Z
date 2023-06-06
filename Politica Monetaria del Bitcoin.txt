@@ -1,0 +1,19 @@
+-----------------------Politica Monetaria del Bitcoin-----------------------------
+
+Dividida en dos:
+
+1) El Halving: afirma que el numero de Bitcoins que se lanza al sistema será reducido c/vez a la mitad, c/ aprox. 200.100 bloques minados. El valor de cada nuevlo bloque está controlado por el software, por el código. Entonces, aprox. c/ 4 años está pre programado, que el valor en BTC obtenido por minar un bloque valga un cuarto menos...a diferencia de los bancos, que lo decide la cúpula del banco en cuestión. Esto del Halving sirve para controlar, qué cantidad de BTC son añadidos al sistema.
+
+Se podria pensar que, una vez pasado cierto valor de recompensa por minar un bloque de BTC, que sea igual al costo que requiere minarlo, dejarán de haber incentivos para minar, y por lo tanto "dejarán de existir" los mineros de BTC...para eso, existen las Transaction FEES: una tasa que se va incrementado a partir de que pase el tiempo. Mientras más bloques haya, más transacciones se van a hacer (más gente lo va a usar al protocolo BTC), transacciones que van a tener que procesar los mineros, y como van a haber c/vez más transacciones, más va a tener que pagar el usuario por transacción (más demanda de transacción, aumenta el precio de transacción, y ese precio (Transaction FEES) se irá al minero). El mercado de BTC, con esas T.FEES, convergerá hacia un mercado competitivo. Es una doble recompensa/incentivo al minero, para que soporte el costo que requiere el minado, y no es compensado por el valor del bloque minado. 
+Hoy en dia, no cuesta nada hacer una transaccion en BTC, y, la recompensa que recibe el minero es de aprox 12,25 BTC. Esto tenderá a revertirse.
+De esta manera, la curva de Transaction FEES  es inversa a la curva de recompensa por minado de bloque.
+
+---------------------------------------------------------------------------
+Bitcoin es un sistema que tiende a una deflación a lo largo del tiempo. (por la cuestión de que cada 4 años aprox se divide por 4 la recompensa por minado de bloque.)
+
+-------------------------------------------------------------------------------------------------
+2) Frecuencia de bloques:
+
+---------------------------
+Leer :
+https://hackernoon.com/this-time-is-different-part-2-what-bitcoin-really-is-ae58c69b3bf0
