@@ -1,0 +1,10 @@
+----------------------Apuntes clase BITCOIN-------------------------------
+
+
+Bitcoin capas:
+
+-Tecnologia - Blockchain
+
+-Protocolos - Bitcoin -> un protocolo es uin conjunt ode reglas que necesariamente hay que afectar para posibilitar la comunicación en internet. Son reglas que permiten que los participantes de una red se comuiniquen entre ellos. Ej Http, https, www, etc.
+
+-Token
