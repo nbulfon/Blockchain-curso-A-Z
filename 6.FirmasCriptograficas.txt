@@ -1,0 +1,29 @@
+Seguridad: ¿ son seguras las transacciones ? ¿ por qué ?
+----------------------------------------------
+Si, es posible falsificar una transaccion. En un principio, la transaccion sería aceptada. ¿Entonces como se hace para que no te roben los bitcoins? Se fundamenta en la criptografia.
+------------------------------------------------
+Existen:
+-Clave privada: es como la contraseña de la cuenta bancaria. Personal 100%
+-A partir de la clave privada se genera una clave pública, es como un alias, que se usa para que los demás sepan a dónde enviar dinero.
+
+Cuando se envia un mensaje (criptos), lo que se hace es generar una "firma" a partir de "hashear" o combinar criptograficamente la clave privada y el mensaje. De tal manera que solo la persona que ha firmado la transaccion (el comitente) puede descifrar la firma.
+¿Quien valida que la firma sea correcta? Puede hacerlo quien tenga posesion de la clave publica. Todo se mete en una funcion con unalgortimo de verificacion, que da cuenta si la firma fue generada con tal clave.
+Lo que tiene de bueno esto de las claves, es que, dada la tecnologia con la que estan criptografiadas o los algortimos con los que están hechas, es imposible realizar ingenieria inversa, para, de una clave publica, deducir una privada. Es un algortimo unidireccional deterrminista.
+El algoritmo que se usa, es uno que usa funciones matematicas, llamadas "CURVAS HELIPTICAS"
+
+----------------------------------------------------------------------
+
+La clave publica entonces, se genera usando algoritmos matematicos con funciones helipticas. Y debido a su estrecha relacion con la clave privada (a pesar de que no se pueda hacer ingenieria inversa para averiguar la clave privada) existe una "direccion" que se genera, aplicandole el algortimo de hashing SHA256 a la clave publica, a la cual se mandan los BTC., que luego remite a la clave publica, etc.
+
+----------------------------------------------------------------------
+Modelos jerárquicos deterministas:
+
+Cuestiones de seguridad en Bitcoin que surgieron luego para reforzar:
+
+1) Clave privada maestra: una clave dominante/unica para todas las claves privadas que se van a generar a partir de ella. Entonces queda: Clave privada maestra - clave privada - clave publica - SHA256  - direccion.
+
+A partir de esta clave privada maestra, se pueden crear n claves privadas. (n claves privadas - n claves publicas - n direcciones respectivas). La generacion es determinista, es decir que se pueden regenerar a partir de la clave privada maestra. No es necesario recordarlas. Solo es necesario recordar la clave primaria maestra.
+Esto es muy útil en el caso del monedero(Wallet). Entonces, para por ej, ver los registros de bloques (cadenas de bloques) para ver las transacciones hechas a lo largo del tiempo, lo puedo hacer a partir de la clave privada maestra.
+Ejemplo: una empresa podria, tener una parte de su estructura financiera en una red blockchain asociada a una criptomoneda. Con esta lógica, podria ser, que, la clave privada maestra solo estuviera en posesión del jefe de la empresa, y los departamentos/divisiones de la empresa tengan acceso a las claves privadas comunes. Entonces, para este tipo de organizaciones se centraria la revision/auditoria/seguridad, etc.
+
+2) Clave publica maestra: logicamente lo unico que puede regenerar es todass las claves publicas del blockchain. Puede servir, por ej para una auditoria, porque podria ver las transacciones sin identificarlas completamente (es decir, sin usar la clave privada). Osea, por ej, con la clave pblica maestra, el auditor podra acceder a las transacciones, pero no tendra poder de accion sobre ellas, porque no posee la clave privada.

@@ -1,0 +1,2 @@
+Mining pools: 
+organizaciones/paginas web que nuclean individuos para minar bitcoins. Nuclean gente para poder tener escala, sino solo podrian minar las minas de BTC propiamente dichas. Lo cual seria muy excluyente para los particulares. Logicamente, la rwcompensa por el bloque minado, será en función de la capacidad de computo proporcionada a la Mining Pool.

@@ -1,0 +1,9 @@
+Las transacciones en  BTC son muy diferentes a las convencionales con la banca.
+La transaccion "Convencional" en el idioma Bitcoin se llamaria "UTXOs".
+En Btc, UNA transaccion vive más alla de que finaliza. Es decir, una transaccion de alguien hacia mi, vive, mas alla del momento en que se envia el dinero.  Permanece la transaccion, entonces cuando yo quiera emitir una nueva transaccion para pagar algo, usaré una de esas.
+
+En BTC o en Criptos, no existe un monto total, del cual disponer, en algun momento para efecturar una compra, etc.
+Todo lo que dispongo son los bloques de transacciones que he recibido, que luego podré usar para emitir una transaccion por x cantidad de btc.
+Como no hay Monto Total de una cuenta, cuando emito una transaccion, tengo que agarrar otra transaccion recibida previamente. Suooniendo que la transaccion que tengo que emitir es de una meneor cantidad de btc de las que tengo, puedo mandara una de las que tengo, y el monto restante mandarlo en otra transaccion de vuelta a mi. Es decir, NO EXISTE EL CONCEPTO DE CAMBIO.
+
+Tarifa (fee) = dinero enviado - dinero recibido    en la transaccion
