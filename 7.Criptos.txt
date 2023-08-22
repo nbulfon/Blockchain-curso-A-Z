@@ -1,0 +1,2 @@
+La diferencia entre la blockchain y una cripto son las transacciones. En la blockchain no necesariamente deben haber transacciones.
+Para pasar de una blockchain a una criptomoneda es necesario añadir la combo para las transacciones y el protocolo de consenso.  
