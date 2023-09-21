@@ -29,12 +29,12 @@ class Blockchain:
        self.chain = []
        self.transactions = []
        # llamo al método, para definir al Bloque Génesis e inicializarlo ->
-       # le paso el proof of work en 1, y el hash previo, que como es el B. Geneesis, va en 0 ->
+       # le paso el proof of work en 1, y el hash previo, que como es el B. Genesis, va en 0 ->
        self.create_block(proof = 1, previous_hash = '0')
        # creo un conjunto de nodos vacio (un conjunto en python es un listado sin orden y sin repeticion.)
        self.nodes = set()
        
-    # ver que el primer argumento de cualquier funcion es self, para usar las props.
+    # ver que el primer argumento de cualquier funcion es self (es como el this en C#), para usar las props.
     def create_block(self, proof, previous_hash):
           #defino un diccionario que representa un bloque ->
           # indice, fecha de minado, proof of work,
@@ -97,9 +97,9 @@ class Blockchain:
             if current_block['previous_hash'] != self.hash(previous_block):
                 return False
             
-            # consulto la prueba del bloue previo ->
+            # consulto la prueba del bloque previo ->
             previous_proof = previous_block['proof']
-            # cpnsulto el valor de la prueba actual ->
+            # consulto el valor de la prueba actual ->
             proof = current_block['proof']
             
             ecuacion = (proof**2 - previous_proof**2)
