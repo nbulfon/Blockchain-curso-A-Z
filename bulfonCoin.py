@@ -15,11 +15,11 @@ import datetime
 import hashlib
 import json
 from flask import Flask, jsonify, request
-import requests
+import requests as http
 from uuid import uuid4
 from urllib.parse import urlparse
 
-# Parte 1: Crear la cadena de bloques ->
+# <region Parte 1 - Crear la cadena de bloques>
 class Blockchain:
     
     #defino el constructor de la clase en python ->
@@ -134,14 +134,42 @@ class Blockchain:
     
     
     def add_node(self, address):
-        parsed_url = urlparse(address)
-        # doy de alta el nodo, que se está registrando a partir de la direccion asignada previamente, que viene por param
+        parsed_url =  urlparse(address)
+        # doy de alta el nodo, que se está registrando a partir de la direccion asignada previamente, que viene por param.
+        # los nodes son n conjunto, no un listado. Por eso tienen el metodo .add y no el .append. Porque no tienen en sí un orden establecido.
         self.nodes.add(parsed_url.netloc)
     
-    
-    
-    
-# Parte 2 - Minado de un bloque de la cadena
+    # función que se llama, desde c/u de los nodos, para verificar que todos tengan la versión correcta de la chain.
+    # es basicamente, la función del protocolo de consenso.
+    # el nodo "ideal" para invocar a esta función, es el nodo más largo (porque a partir de él, el resto deberia "sincronizarse").
+    def replace_chain(self):
+        network = self.nodes
+        longest_chain = None
+        
+        # la longitud "maxima" contra la cual comparar los nodos, es la del bloque mas largo ->
+        max_length = len(self.chain)
+        
+        # para cada nodo, obtengo la cadena entera para sincronizar ->
+        for node in network:
+            response = http.get(f'http://{node}/get_chain')
+            if response.status_code == 200:
+                lengthDelBloque = response.json()['length']
+                chain = response.json()['chain']
+                
+                # si la cadena del bloque es mayor (mas larga) a la mia y encima es valida, la acepto ->
+                if lengthDelBloque > max_length and self.is_chain_valid(chain):
+                    max_length = lengthDelBloque
+                    longest_chain = chain
+                # si la cadena ha sido asignada, actualizo mi cadena para sincronizarla con la longest chain encontrada.
+                # entonces, como el fundamental de la blockChain, el nodo con la cadena más larga, transmite la información
+                # al resto.
+                if longest_chain != None:
+                    self.chain = longest_chain
+                    return True
+                else: return False
+# </region>
+
+# <region Parte 2 - Minado de un bloque de la cadena>
 
 # primero voy a crear una web app basada en Flask ->
 app = Flask(__name__)
@@ -149,6 +177,8 @@ app = Flask(__name__)
 # si obtengo error 500, actualizar Flash, reiniciar Spyder, y descomentar la linea de abajo ->
 # app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
+# crear la dirección del nodo en el puerto estándar (5000)
+node_adress = str(uuid4()).replace('-', '')
 
 # segundo voy a crear una BlockChain ->
 blockchain = Blockchain()
@@ -168,6 +198,9 @@ def mine_block():
     proof = blockchain.proof_of_work(previous_proof)
     # obtengo el hash del bloque previo ->
     previous_hash = blockchain.hash(previous_block)
+    
+    blockchain.add_transaction(sender = node_adress, receiver = 'Nicolas Bulfón', amount = 10)
+    
     block = blockchain.create_block(proof, previous_hash)
     
     # armo la response, que el usuario va a ver en la web/postman ->
@@ -177,13 +210,13 @@ def mine_block():
         'timestamp' : block['timestamp'],
         'proof' : block['proof'],
         'previous_hash' : block['previous_hash'],
+        'transactions' : block['transactions']
         }
     return jsonify(response) , 200
 
 
 # Obtener la cadena de bloques por completo.
 @app.route('/get_chain', methods =['GET'])
-
 def get_chain():
     response = {
         'chain' : blockchain.chain,
@@ -194,7 +227,6 @@ def get_chain():
 
 
 @app.route('/is_valid', methods =['GET'])
-
 def is_blockchain_valid():
     
     chain = blockchain.chain
@@ -216,11 +248,34 @@ def is_blockchain_valid():
     return jsonify(response), 200
 
 
-# Parte 3: Descentralizar la cadena de bloques
+@app.route('add_transactions', methods = ['POST'])
+def add_transaction():
+    ficheroJson = request.get_json()
+    
+    # keys necesarias para el post
+    transactions_keys = ['sender','receiver','amount']
+    
+    # verifico si para cada key del transactions_keys , la key pertenece al ficheroJson
+    if not all(key in ficheroJson for key in transactions_keys):
+        return 'faltan algunos elementos de la transacción', 400
+    
+    # obtengo el indice del bloque de la cadena que se obtendra en el futuro, cuando este bloque sea minado
+    index = blockchain.add_transaction(ficheroJson['sender'], ficheroJson['receiver'], ficheroJson['amount'])
+    response = {'message': f'La transacción será añadida al bloque {index}'}
+    return jsonify(response), 201
+
+# </region>
+
+
+# <region Parte 3 - Descentralizar la cadena de bloques >
+
 # descentralizaré los nodos de los bloques, para crear una red distribuida de nodos, recreando y copiando la información,
 # que luego lleguen al consenso, etc.
 
+# ejecutar la app
+app.run(host = '0.0.0.0', port= 5000)
 
+# </region>
 
 
 
