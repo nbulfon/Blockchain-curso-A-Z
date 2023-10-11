@@ -199,7 +199,7 @@ def mine_block():
     # obtengo el hash del bloque previo ->
     previous_hash = blockchain.hash(previous_block)
     
-    blockchain.add_transaction(sender = node_adress, receiver = 'Nicolas Bulfón', amount = 10)
+    blockchain.add_transaction(sender = node_adress, receiver = 'Juana Bulfón', amount = 10)
     
     block = blockchain.create_block(proof, previous_hash)
     
@@ -314,6 +314,6 @@ def replace_chain():
 
 
 # ejecutar la app
-app.run(host = '0.0.0.0', port= 5000)
+app.run(host = '0.0.0.0', port= 5004)
 
 # </region>
