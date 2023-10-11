@@ -1,0 +1,6 @@
+1. Correr los codigos en cada consola
+2. tirar el connect_node con el nodes.json que corresponda para establecer la conexion
+3. tirar el mine_block para minar nodos
+4. add_transactions para mandar plata en bulfonCoin
+-cada vez que mande pata, despues tengo que hacer desde el sender que lo hizo, el mine_block
+5. replace_chain para hacer la prueba de consenso entre las partes

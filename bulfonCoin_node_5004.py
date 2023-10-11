@@ -129,7 +129,7 @@ class Blockchain:
                 'amount':amount
             })
         #agarro el último de los bloques minados hasta el momento y le añado la transaccion
-        previous_block = self.previous_block()
+        previous_block = self.get_previous_block()
         return previous_block['index'] + 1
     
     
