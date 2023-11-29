@@ -1,0 +1,29 @@
+Ethereum:
+
+Bitcoin es simplemente una criptomoneda descentralizada
+Ethereum, es otra cosa. Es una plataforma para que otros puedan construir en base a ella.
+El protocolo de Ethereum es más para crear programas en base a ella, y el protocolo de BTC es más para tener una criptomoneda descentralizada.
+Ethereum se fundamenta en crear un superOrdenador, que, sirva como plataforma para descentralizar cualquier app. Es una tecnología, un protocolo. Por eso se habla de la red de Ethereum
+
+ver link: https://coincentral.com/what-is-ethereum-the-ultimate-beginners-guide/
+
+------------------------------------------------------------------------------------------------------------------
+SmartContracts (SM) :
+
+
+Bitcoin está programado en su propio lenguaje, que es: BitcoinScript. Idem para Ethereum, que está programado en Solidity.
+
+Completitud de Turing de un lenguaje: un lenguaje es Turing completo, si dicho lenguaje permite escribir cualquier tipo de lógica en ese lenguaje. Que es autónomo, etc.
+Solidity si es un lenguaje Turing completo. ¿ Por qué ? Porque Bitcoin no es un lenguaje Turing comppleto, porque a BitcoinScript le faltan lo que son los bucles. (for,foreach,while, etc).
+En BitcoinScript no hay bucles intencionalmente. El motivo es que es para evitar problemas...porque los bucles pueden ralentizar mucho el funcionamiento de la blockchain, perdería eficiencia.
+Por eso, tecnicamente hablando, BitcoinScript es un lenguaje Turing incompleto.
+
+El SM está distribuido, habrá una copia del SM en cada nodo. Cada Nodo contiene:
+1. Historial de todos los SM
+2. Historial de todas las transacciones.
+3. Estado actual de todos los SM
+----
+
+ver link: https://www.provenance.org/whitepaper , https://www.freecodecamp.org/news/smart-contracts-for-dummies-a1ba1e0b9575/
+
+
