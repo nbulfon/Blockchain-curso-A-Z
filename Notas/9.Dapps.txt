@@ -1,0 +1,29 @@
+Dapps:
+es una interfaz para poder conectar con las app. Tiene dos partes:
+frontend -> lo que ve el cliente
+backend -> la parte que interactua con la blockchain
+Entonces digamos, una Dapp, funciona en realidad como una api que relaciona una app con la cadena de bloques, donde está la info. Es una especie de SM preparado para un cliente que vaya a usar la app.
+-----------
+App -> SM -> Blockchain
+ver ejemplo de Dapp -> https://steemit.com/
+
+------------------------------------------------------------------------------
+Maquinas virtuales de Ethereum y Gas:
+
+cuales son los posibles riesgos en la red de Ethereum ?
+-Un SM se ejecuta en cada nodo...y si ese programa contiene un virus ? y si alguien mete un malware y por consecuencia todos los nodos copian ese malware ? existe algo de "proteccion" en este contexto ?
+que se hace ? --> MAQUINAS VIRTUALES.
+------
+El tema del GAS --> los clientes de un SM deben usar GAS para "pagar" por usar ese SM...el algoritmo necesita el GAS para funcionar.
+Ver excel con los costos de cada operacion en terminos de GAS...hay que programarlo en SOLIDITY esto.
+Basicamente, un bucle infinito (falla u error de optimizacion)dejará al desarrollador sin GAS, por lo que se parará la aplicación. Esto evita, a su vez, que la red de Ethereum no colapse... POR ESO EN ESTE ESQUEMA ES MUY IMPORTANTE EL TESTING. Este esquema optimiza muchisimo el código
+-------
+
+ver ethgasstation.info --> para ver un ranking de cuanto gastan las principales cosas en la red de Ethereum.
+
+-Otra cosa. Por que se paga en GAS y no en Ether ? simplemente por la volatilidad del precio del Ether, lo que impide la unidad de cuenta. Esta mera existencia del GAS, para no usar Ether, da otra diferencia en relación al concepto de BITCOIN...
+
+Obj de BITCOIN -> crear una criptomoneda descentralizada, unica, infalsificable, respaldada en blockchain...
+Obj de Ethereum -> crear una red para que se puedan montar sistemas/apps respaldados en SmartContracts...
+
+
