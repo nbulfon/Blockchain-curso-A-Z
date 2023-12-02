@@ -1,4 +1,5 @@
 Dapps:
+ej de Daap -> TOR
 es una interfaz para poder conectar con las app. Tiene dos partes:
 frontend -> lo que ve el cliente
 backend -> la parte que interactua con la blockchain

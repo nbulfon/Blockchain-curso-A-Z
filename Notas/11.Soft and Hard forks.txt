@@ -1,0 +1,19 @@
+Soft and Hard forks:
+
+ => fork = bifurcación
+
+Hard fork = update/upgrade de version del blockchain. Genera una bifurcación en relación a la version anterior. Porque hay quienes (mineros) que pueden optar por seguir usando la version anterior.
+Entonces, hoy existe:
+-Ethereum
+-Ethereum classic
+c/version tiene su propia criptomoneda, con cotizacion diferente en dolar...
+lo mismo le pasó a BTC en 2017...pasó cuando el protocolo BTC aceptó agregar el cambio del "testigo segregado". (Segwit Soft Fork). -> sirvió para que se pudieran meter más MB de datos en cada bloque. Antes era solo de 1MB.
+Entonces hoy dia existen:
+-Bitcoin Cash -> permite 8MB en cada bloque
+-Bitcoin -> permite 1MB mientras la info. del testigo segregado va por un canal aparte.
+-Bitcoin Gold -> por otro hard fork -> nació por no querer permitir el minado de BTC con asics.
+------------------
+*Un Fork es basicamente, un termino de programacion, particularmente de GitHub, que hace referencia a un R nuevo...es una copia identica de la version anterior que corre en paralelo y de manera autónoma...(siempre que sea utilizada).
+--------------------------------------
+Hard Forks -> suavizan las reglas del software
+Soft Forks -> endurecen las reglas del softwares
